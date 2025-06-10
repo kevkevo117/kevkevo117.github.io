@@ -1,6 +1,6 @@
 # 🛡️ Penetration Test Report: KevoCorp (Simulated Black Box Assessment)
 
-## 🧠 Project Overview
+## 🧠A Brief Project Overview
 
 This project represents a simulated black-box penetration test targeting the fictional organization “KevoCorp.” The engagement followed the five standard phases of ethical hacking: reconnaissance, scanning, enumeration, exploitation, and post-exploitation. It was conducted to evaluate the company’s security posture and deliver actionable mitigation strategies.
 
@@ -44,6 +44,6 @@ This project represents a simulated black-box penetration test targeting the fic
 
 ## ✍️ Author
 
-**Kevin Smith**  
+**Kevin Gonzalez**  
 Bachelor of Science in Cybersecurity, Augusta University  
 Expected Graduation: December 2025
