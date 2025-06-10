@@ -1,12 +1,12 @@
 # 🕵️ Digital Forensics Project: Windows System Compromise Investigation
 
-## 🧠 Project Overview
+## 🧠 Brief Project Overview
 
 This project presents a forensic analysis of a compromised Windows system. It replicates a scenario in which an internal workstation exhibited signs of unusual behavior and potential compromise. The investigation followed the forensic process of evidence preservation, analysis, interpretation, and reporting.
 
 ---
 
-## 🔧 Tools Used
+## 🔧 Main Tools Used
 
 - **Autopsy**: Used for analyzing file system artifacts and building a timeline of user and system activity.
 - **FTK Imager**: For creating and mounting forensic disk images.
@@ -41,6 +41,6 @@ This project presents a forensic analysis of a compromised Windows system. It re
 
 ## ✍️ Author
 
-**Kevin Smith**  
+**Kevin Gonzalez**  
 Bachelor of Science in Cybersecurity, Augusta University  
 Expected Graduation: December 2025
