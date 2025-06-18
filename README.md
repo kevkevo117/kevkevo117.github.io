@@ -31,3 +31,25 @@ This digital forensics project simulates a real-world investigation into a compr
 📄 [View Full Report (Google Docs)](https://docs.google.com/document/d/1oPtdPgLX7t0ZilJpxZvbXmD-jCJgctxd2UcIq0iF7zE/edit?usp=sharing)
 
 👉 [View detailed project breakdown](./forensics-analysis.md)
+
+
+# 💬 Response Simulator
+
+This is a simple Python project that simulates incoming messages and offers a selection of suggested replies. The user's chosen response is logged with a timestamp in a file called `response_log.txt`.
+
+## 🚀 Features
+
+- Simulates realistic incoming work messages.
+- Provides 3 random suggested replies to choose from.
+- Logs the chosen response with a timestamp.
+- Easy to extend or modify message and response templates.
+
+## 🛠️ How to Run
+
+1. **Make sure you have Python 3 installed.**
+2. Clone or download this repository.
+3. Navigate to the project directory in your terminal.
+4. Run the script:
+
+```bash
+python response_simulator.py
