@@ -96,5 +96,5 @@ For deployment:
 
 ## ✍️ Author
 
-**Kevin Smith**  
+**Kevin Gonzalez**  
 [GitHub Pages](https://kevkevo117.github.io)
