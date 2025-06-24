@@ -1,0 +1,5 @@
+Flask
+Flask_SQLAlchemy
+requests
+beautifulsoup4
+gunicorn
