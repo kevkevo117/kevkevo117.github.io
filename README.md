@@ -44,9 +44,9 @@ pip install -r requirements.txt
 ### 3. Set your Discord Webhook
 In `app.py`, replace this line:
 ```python
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/your_webhook_url"
+DISCORD_WEBHOOK_URL = 
 ```
-> ⚠️ Do not commit your actual webhook in public repos.
+
 
 ### 4. Run the app
 ```bash
