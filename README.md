@@ -1,9 +1,9 @@
 #Kevin Gonzalez Projects 
 
 
-# 💸 Price Tracker App
+# 💸 Price Tracker App (WIP)
 
-A full-stack web app that lets users track product prices and get notified via Discord when prices drop below a specified discount threshold.
+A work in progress full-stack web app that lets users track product prices and get notified via Discord when prices drop below a specified discount threshold.
 
 ---
 
