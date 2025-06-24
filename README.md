@@ -28,3 +28,6 @@ A full-stack web app that lets users track product prices and get notified via D
 
 ---
 
+[Usage Guide: Dashboard Template](usage-guide.md)
+
+---
