@@ -33,6 +33,9 @@ GET /cities – View cities and relationships
 
 Python • Flask • SQLAlchemy • Flask-JWT-Extended • SQLite • Werkzeug Security
 
+LINK for the API Repo
+(https://github.com/kevkevo117/paragon-api)
+
 📌 Summary
 
 This project showcases backend API development with a strong focus on authentication, relational data modeling, and secure RESTful design patterns—aligned with real-world production API structures.
@@ -65,7 +68,7 @@ A work in progress full-stack web app that lets users track product prices and g
 
 ---
 
-[Usage Guide: Dashboard Template](usage-guide.md)
+[Usage Guide: Dashboard Template](https://github.com/kevkevo117/price-tracker-app.git)
 
 ---
 
