@@ -1,6 +1,43 @@
 #Kevin Gonzalez Projects 
 
 
+⚔️ Paragon API
+
+A secure, production-style Flask REST API built to model a relational fantasy world consisting of kingdoms, cities, and characters. This project demonstrates backend engineering fundamentals including authentication, database design, and scalable API architecture.
+
+🚀 Key Highlights
+Designed and built a RESTful API using Flask and SQLAlchemy
+Implemented normalized relational database structure (Kingdom → City → Character)
+Built full CRUD functionality with clean REST conventions
+Integrated JWT-based authentication and authorization
+Secured user credentials using password hashing (Werkzeug)
+Protected sensitive routes using token-based access control
+
+🔐 Authentication System
+User registration and login system
+JSON Web Token (JWT) authentication
+Protected endpoints for all data modification operations
+Secure password storage using hashing
+
+📡 Core Endpoints
+POST /register – User registration
+POST /login – JWT token generation
+GET /characters – Retrieve all characters
+POST /characters – Create character (protected)
+PUT /characters/<id> – Update character (protected)
+DELETE /characters/<id> – Delete character (protected)
+GET /kingdoms – View kingdoms with nested cities
+GET /cities – View cities and relationships
+
+🧠 Tech Stack
+
+Python • Flask • SQLAlchemy • Flask-JWT-Extended • SQLite • Werkzeug Security
+
+📌 Summary
+
+This project showcases backend API development with a strong focus on authentication, relational data modeling, and secure RESTful design patterns—aligned with real-world production API structures.
+
+
 # 💸 Price Tracker App (WIP)
 
 A work in progress full-stack web app that lets users track product prices and get notified via Discord when prices drop below a specified discount threshold.
