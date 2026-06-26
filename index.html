@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kev — Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0F1117;
+      --surface:   #1A1D2E;
+      --surface2:  #222640;
+      --accent:    #6C8EF5;
+      --accent-dim:#3D5190;
+      --text:      #E2E8F0;
+      --muted:     #8892A4;
+      --border:    #2A2F4A;
+      --radius:    10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(15,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 7rem 2.5rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.4;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #7f9ef7;
+      border-color: #7f9ef7;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2.5rem; }
+
+    .section-inner { max-width: 1024px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { border-top: 1px solid var(--border); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .certs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cert-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cert-icon svg { width: 16px; height: 16px; fill: var(--accent); }
+
+    .cert-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cert-issuer {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Flagship card spans full width */
+    .project-card.flagship {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #141728 0%, #1A1D2E 60%, #1e2240 100%);
+      border-color: var(--accent-dim);
+      position: relative;
+    }
+
+    .project-card.flagship::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .project-card.flagship .project-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .flagship-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      background: rgba(108,142,245,0.15);
+      border: 1px solid var(--accent-dim);
+      border-radius: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .flagship-badge::before {
+      content: '★';
+      font-size: 0.65rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .project-category {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .project-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 1rem 1.5rem;
+      padding: 0;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+
+    .project-toggle:hover { opacity: 0.75; }
+
+    .project-toggle .chevron {
+      transition: transform 0.25s;
+      display: inline-block;
+    }
+
+    .project-toggle.open .chevron { transform: rotate(180deg); }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .project-details.open {
+      max-height: 400px;
+    }
+
+    .project-details-inner {
+      padding: 1rem 1.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .detail-block-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      padding: 0.2rem 0.6rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .gained-text {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0 1.5rem 1.25rem;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .link-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SKILLS ── */
+    #skills { border-bottom: 1px solid var(--border); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .skill-group-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-tag {
+      padding: 0.3rem 0.7rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-desc {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 5rem 1.25rem 4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">KG</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Cybersecurity Professional</div>
+      <h1>Kev <span>Gonzalez</span></h1>
+      <p class="hero-desc">
+        BS in Cybersecurity from Augusta University. I build secure systems, analyze threats, and care about getting it right — not just getting it done.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">About</p>
+          <h2 class="section-title">Background</h2>
+          <p>
+            Recent graduate of Augusta University with a Bachelor of Science in Cybersecurity. I'm driven by a practical, systems-level approach to security — understanding not just what broke, but why, and how to ensure it doesn't happen again.
+          </p>
+          <p>
+            My experience spans data compliance, system hardening, network security, and technical support. I hold active industry certifications and am actively pursuing roles where security is treated as a first-class concern.
+          </p>
+          <p>
+            When I'm not working in security, I'm probably deep in a tabletop RPG or building something elaborate in a game editor. That same attention to systems and detail carries over into everything I do.
+          </p>
+        </div>
+        <div>
+          <p class="section-label" style="margin-bottom: 1rem;">Certifications</p>
+          <div class="certs">
+            <div class="cert-item">
+              <div class="cert-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">CompTIA Security+</div>
+                <div class="cert-issuer">CompTIA — Active</div>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">Microsoft Azure Fundamentals</div>
+                <div class="cert-issuer">Microsoft — AZ-900</div>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="#6C8EF5" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">Google Cybersecurity Professional</div>
+                <div class="cert-issuer">Google — Certificate</div>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <div class="cert-name">BS in Cybersecurity</div>
+                <div class="cert-issuer">Augusta University — 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">Toolkit</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-title">Security</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Threat Analysis</span>
+            <span class="skill-tag">SIEM</span>
+            <span class="skill-tag">Vulnerability Assessment</span>
+            <span class="skill-tag">Incident Response</span>
+            <span class="skill-tag">Network Security</span>
+            <span class="skill-tag">Data Compliance</span>
+            <span class="skill-tag">Risk Management</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Tools & Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft Azure</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">Nmap</span>
+            <span class="skill-tag">Splunk</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Windows Server</span>
+            <span class="skill-tag">Active Directory</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Languages & Other</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PowerShell</span>
+            <span class="skill-tag">Documentation</span>
+            <span class="skill-tag">Technical Writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-desc">
+        Open to cybersecurity roles, IT positions, and conversations about security-first systems. Feel free to reach out through any of the links below.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="btn btn-primary">
+          <!-- email icon -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Me
+        </a>
+        <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Kev Gonzalez</p>
+    <p>Built with vanilla HTML, CSS & JS</p>
+  </footer>
+
+  <script>
+    const GITHUB_SVG = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>`;
+    const CHEVRON_SVG = `<svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`;
+    const DOC_SVG = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+
+    const projects = [
+      {
+        flagship: true,
+        category: "Backend Development · REST API",
+        title: "Paragon API",
+        description: "A Flask-based RESTful API built around a fantasy world management system. Features full relational database design modeling Kingdoms, Cities, and Characters with One-to-Many relationships, JWT-based authentication, secure password hashing, and complete CRUD operations on protected routes.",
+        tools: ["Python", "Flask", "Flask-SQLAlchemy", "Flask-JWT-Extended", "SQLite", "Werkzeug Security", "Postman"],
+        gained: "Gained end-to-end experience designing and building a production-style REST API from scratch — including database modeling with relational foreign keys, implementing stateless JWT authentication, protecting routes, and structuring a backend codebase cleanly. Reinforced the real security implications of password hashing and token management.",
+        github: "https://github.com/kevkevo117/paragon-api",
+        doc: ""
+      },
+      {
+        category: "Penetration Testing",
+        title: "KevoCorp Simulated Black Box Pen Test",
+        description: "A full simulated black-box penetration test against the fictional organization KevoCorp, executed across all five phases of ethical hacking: reconnaissance, scanning, enumeration, exploitation, and post-exploitation. Delivered a formal written report with risk-rated findings and mitigations.",
+        tools: ["Nmap", "Nikto", "Burp Suite", "Metasploit", "Hydra", "Kali Linux"],
+        gained: "Developed a structured methodology for offensive security engagements, learning how individual vulnerabilities chain together into a full compromise path. Built confidence running real tooling against a controlled target and translating technical findings into a professional report for a non-technical audience.",
+        github: "https://github.com/kevkevo117/pentest_report",
+        doc: "https://docs.google.com/document/d/1oPtdPgLX7t0ZilJpxZvbXmD-jCJgctxd2UcIq0iF7zE/edit?usp=drive_link"
+      },
+      {
+        category: "Digital Forensics",
+        title: "Windows Compromise Investigation",
+        description: "Forensic analysis of a simulated compromised Windows workstation exhibiting signs of malware infection and unauthorized access. The investigation covered evidence preservation, disk and memory analysis, artifact interpretation, and formal reporting — uncovering a malicious executable, deleted PowerShell scripts, persistence via registry, and C2 beaconing traffic.",
+        tools: ["Autopsy", "FTK Imager", "Volatility Framework", "Wireshark"],
+        gained: "Learned the complete digital forensics workflow from disk imaging to final report. Gained practical skills in memory forensics with Volatility, file system artifact analysis, and identifying C2 behavior in network captures. Strengthened the ability to document findings in a chain-of-custody-aware, reproducible way.",
+        github: "https://github.com/kevkevo117/windows-forensics-analysis",
+        doc: "https://docs.google.com/document/d/1oPtdPgLX7t0ZilJpxZvbXmD-jCJgctxd2UcIq0iF7zE/edit?usp=sharing"
+      },
+      {
+        category: "Full Stack Development",
+        title: "Price Tracker App",
+        description: "A full-stack web application that tracks product prices across e-commerce sites via web scraping, stores items in a SQLite database, and sends real-time Discord webhook alerts when a user-defined discount threshold is hit. Includes a Flask dashboard for managing tracked items and an optional background worker process.",
+        tools: ["Python", "Flask", "SQLAlchemy", "SQLite", "BeautifulSoup", "Discord Webhooks", "Gunicorn", "HTML/JS"],
+        gained: "Built and integrated multiple system layers — scraping, persistent storage, background scheduling, and push notifications — into a single coherent application. Learned how to design a background worker that runs independently from the web process and how to handle scraping edge cases and fallback logic gracefully.",
+        github: "https://github.com/kevkevo117/price-tracker-app.git",
+        doc: ""
+      },
+      {
+        category: "Python · Scripting",
+        title: "Response Simulator",
+        description: "A Python CLI tool that simulates incoming workplace messages and presents the user with three randomly sampled suggested replies. The chosen response is logged with a timestamp to a local file, simulating a lightweight communication logging system.",
+        tools: ["Python 3", "Random", "Datetime", "File I/O"],
+        gained: "Practiced clean Python scripting fundamentals — random sampling, user input validation, datetime formatting, and file I/O — while building something with a clear, practical shape. A foundational project that reinforced writing modular, readable code from the ground up.",
+        github: "https://github.com/kevkevo117/response-simulator.git",
+        doc: ""
+      }
+    ];
+
+    const grid = document.getElementById('projectsGrid');
+
+    projects.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = p.flagship ? 'project-card flagship' : 'project-card';
+
+      const headerInner = p.flagship
+        ? `<div>
+            <div class="project-category">${p.category}</div>
+            <div class="project-title">${p.title}</div>
+            <div class="project-desc">${p.description}</div>
+           </div>
+           <span class="flagship-badge">Flagship</span>`
+        : `<div class="project-category">${p.category}</div>
+           <div class="project-title">${p.title}</div>
+           <div class="project-desc">${p.description}</div>`;
+
+      const linkButtons = [];
+      if (p.github && p.github !== '#') {
+        linkButtons.push(`<a href="${p.github}" class="link-btn" target="_blank" rel="noopener">${GITHUB_SVG} GitHub</a>`);
+      } else if (p.github === '#') {
+        linkButtons.push(`<a href="${p.github}" class="link-btn">${GITHUB_SVG} GitHub</a>`);
+      }
+      if (p.doc) {
+        linkButtons.push(`<a href="${p.doc}" class="link-btn" target="_blank" rel="noopener">${DOC_SVG} Full Report</a>`);
+      }
+
+      card.innerHTML = `
+        <div class="project-header">${headerInner}</div>
+
+        <button class="project-toggle" data-index="${i}" aria-expanded="false">
+          Case Details ${CHEVRON_SVG}
+        </button>
+
+        <div class="project-details" id="details-${i}">
+          <div class="project-details-inner">
+            <div>
+              <div class="detail-block-label">Tools Used</div>
+              <div class="tag-row">${p.tools.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            </div>
+            <div>
+              <div class="detail-block-label">What I Gained</div>
+              <p class="gained-text">${p.gained}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-links">${linkButtons.join('')}</div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.project-toggle');
+      if (!btn) return;
+      const idx = btn.dataset.index;
+      const details = document.getElementById(`details-${idx}`);
+      const isOpen = details.classList.contains('open');
+      details.classList.toggle('open', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.querySelector('.chevron').style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+  </script>
+</body>
+</html>
